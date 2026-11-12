@@ -1379,10 +1379,38 @@ function buatGrafikPengguna() {
 
 function unduhGrafik() {
   if (!charts.grafik) return;
-  const a = document.createElement('a');
-  a.href = charts.grafik.toBase64Image('image/png', 1);
-  a.download = 'grafik-ministat.png';
-  a.click();
+
+  const popup = $('popup-unduh');
+  const spinner = $('popup-unduh-spinner');
+  const success = $('popup-unduh-success');
+  const teks = $('popup-unduh-teks');
+  const sub = $('popup-unduh-sub');
+
+  if (popup) {
+    if (spinner) spinner.hidden = false;
+    if (success) success.hidden = true;
+    if (teks) teks.textContent = 'Mengunduh grafik PNG...';
+    if (sub) sub.textContent = 'File gambar sedang disiapkan';
+    popup.hidden = false;
+  }
+
+  setTimeout(() => {
+    const a = document.createElement('a');
+    a.href = charts.grafik.toBase64Image('image/png', 1);
+    a.download = 'grafik-ministat.png';
+    a.click();
+
+    if (popup) {
+      if (spinner) spinner.hidden = true;
+      if (success) success.hidden = false;
+      if (teks) teks.textContent = 'Grafik berhasil diunduh!';
+      if (sub) sub.textContent = 'Tersimpan ke perangkat Anda';
+
+      setTimeout(() => {
+        popup.hidden = true;
+      }, 1400);
+    }
+  }, 400);
 }
 
 /* ============================================================

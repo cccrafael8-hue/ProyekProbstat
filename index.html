@@ -425,6 +425,29 @@
     </div>
   </div>
 
+  <!-- Popup Animasi Unduh PNG -->
+  <div id="popup-unduh" class="popup-overlay" hidden>
+    <div class="popup-card">
+      <div class="popup-icon-wrap">
+        <div class="popup-spinner" id="popup-unduh-spinner">
+          <svg class="icon-download-anim" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </div>
+        <div class="popup-success-icon" id="popup-unduh-success" hidden>
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4d8a77" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+      </div>
+      <h4 id="popup-unduh-teks" class="popup-judul">Mengunduh grafik PNG...</h4>
+      <p id="popup-unduh-sub" class="popup-sub">File gambar sedang disiapkan</p>
+    </div>
+  </div>
+
   <!-- ===================== LIBRARY (CDN) ===================== -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>

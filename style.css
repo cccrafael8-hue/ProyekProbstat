@@ -695,6 +695,80 @@ input[type="checkbox"] {
   transition: opacity 0.3s ease;
 }
 
+/* ---------- Popup Animasi Unduh PNG ---------- */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 41, 37, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
+}
+
+.popup-card {
+  background: var(--surface);
+  border-radius: var(--radius-kartu);
+  padding: 1.75rem 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  min-width: 280px;
+  max-width: 340px;
+  border: 1px solid var(--garis);
+  animation: popScale 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popScale {
+  from { opacity: 0; transform: scale(0.85) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.popup-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-pill);
+  background: var(--mint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.popup-spinner .icon-download-anim {
+  stroke: var(--primary);
+  animation: bounceDownload 0.9s infinite ease-in-out;
+}
+
+@keyframes bounceDownload {
+  0%, 100% { transform: translateY(-4px); }
+  50% { transform: translateY(4px); }
+}
+
+.popup-success-icon {
+  animation: checkPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes checkPop {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.popup-judul {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--teks);
+}
+
+.popup-sub {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--teks-lembut);
+}
+
 /* ---------- Responsif ---------- */
 @media (max-width: 960px) {
   .grid-grafik {
