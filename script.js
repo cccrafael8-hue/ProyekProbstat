@@ -711,10 +711,9 @@ if (typeof Chart !== 'undefined') {
   Chart.register(pluginLatarPutih, pluginGarisVertikal);
 }
 
-function warnaKe(i, dasar) {
-  if (i === 0) return dasar || PALET[0];
+function warnaKe(i) {
   if (i < PALET.length) return PALET[i];
-  return `hsl(${(i * 47) % 360} 40% 55%)`;
+  return `hsl(${(i * 47) % 360} 45% 50%)`;
 }
 
 function buatChart(slot, canvasId, konfigurasi) {
@@ -791,13 +790,12 @@ function dataHistogram(arr, nBin, batasMin, batasMaks) {
 
 function konfigHistogram(arr, o) {
   const h = dataHistogram(arr, o.nBin, o.batasMin, o.batasMaks);
-  const warna = o.warna || PALET[0];
   const datasets = [{
     type: 'bar',
     label: 'Frekuensi',
     data: h.hitung,
-    backgroundColor: warna + 'cc',
-    borderColor: warna,
+    backgroundColor: h.label.map((_, i) => warnaKe(i) + 'cc'),
+    borderColor: h.label.map((_, i) => warnaKe(i)),
     borderWidth: 1,
     borderRadius: 8,
     barPercentage: 1,
@@ -1312,7 +1310,6 @@ function buatGrafikPengguna() {
     const ky = $('sumbu-y').value;
     const kg = $('pilih-kelompok').value;
     const fn = $('agregasi').value;
-    const warna = $('warna-grafik').value;
     const legenda = $('tampil-legenda').checked;
     const judulIsian = $('judul-grafik').value.trim();
     const labelXIsian = $('label-x').value.trim();
@@ -1327,7 +1324,6 @@ function buatGrafikPengguna() {
       const nBin = Math.max(2, Math.min(50, parseInt($('jumlah-bin').value, 10) || 8));
       konfigurasi = konfigHistogram(arr, {
         nBin,
-        warna,
         judul: judulIsian || `Histogram ${ky}`,
         labelX: labelXIsian || ky,
         labelY: labelYIsian || 'Frekuensi',
@@ -1341,7 +1337,7 @@ function buatGrafikPengguna() {
         const titik = baris
           .filter((r) => isNum(r[kx]) && isNum(r[ky]) && (g === null || String(r[kg]) === g))
           .map((r) => ({ x: r[kx], y: r[ky] }));
-        const w = warnaKe(i, warna);
+        const w = warnaKe(i);
         return { label: g === null ? `${ky} terhadap ${kx}` : g, data: titik, backgroundColor: w + 'cc', borderColor: w, pointRadius: 5 };
       });
       konfigurasi = {
@@ -1352,7 +1348,7 @@ function buatGrafikPengguna() {
     } else {
       // bar, line, pie
       if (!kx) throw new Error('Pilih variabel untuk sumbu X.');
-      if (kx === ky) throw new Error('Sumbu X dan sumbu Y harus variabel yang berbeda.');
+      if (kx === ky) throw new Error('Sumbu X dan sumbu Y meharus variabel yang berbeda.');
       const kategori = urutkanKategori(baris.filter((r) => ada(r[kx])).map((r) => r[kx]));
       if (kategori.length === 0) throw new Error('Variabel sumbu X belum berisi data.');
       if (kategori.length > 200) throw new Error('Kategori sumbu X terlalu banyak (lebih dari 200). Pilih variabel lain.');
@@ -1370,7 +1366,7 @@ function buatGrafikPengguna() {
           type: 'pie',
           data: {
             labels: kategori,
-            datasets: [{ data, backgroundColor: kategori.map((_, i) => warnaKe(i, warna)), borderColor: '#ffffff', borderWidth: 2 }]
+            datasets: [{ data, backgroundColor: kategori.map((_, i) => warnaKe(i)), borderColor: '#ffffff', borderWidth: 2 }]
           },
           options: {
             responsive: true,
@@ -1384,12 +1380,40 @@ function buatGrafikPengguna() {
       } else {
         const sumberGrup = kg && kg !== kx ? [...new Set(baris.filter((r) => ada(r[kg])).map((r) => String(r[kg])))] : [null];
         const datasets = sumberGrup.map((g, i) => {
-          const w = warnaKe(i, warna);
           const data = kategori.map((k) => agregasi(ambil(k, g), fn));
-          const dasar = { label: g === null ? `${namaAgg} ${ky}` : g, data };
-          return jenis === 'bar'
-            ? { ...dasar, backgroundColor: w + 'cc', borderColor: w, borderWidth: 1, borderRadius: 8 }
-            : { ...dasar, borderColor: w, backgroundColor: w, tension: 0.2, spanGaps: true, pointRadius: 4 };
+          if (jenis === 'bar') {
+            if (sumberGrup.length === 1) {
+              return {
+                label: `${namaAgg} ${ky}`,
+                data,
+                backgroundColor: kategori.map((_, j) => warnaKe(j) + 'cc'),
+                borderColor: kategori.map((_, j) => warnaKe(j)),
+                borderWidth: 1,
+                borderRadius: 8
+              };
+            } else {
+              const w = warnaKe(i);
+              return {
+                label: g,
+                data,
+                backgroundColor: w + 'cc',
+                borderColor: w,
+                borderWidth: 1,
+                borderRadius: 8
+              };
+            }
+          } else {
+            const w = warnaKe(i);
+            return {
+              label: g === null ? `${namaAgg} ${ky}` : g,
+              data,
+              borderColor: w,
+              backgroundColor: w,
+              tension: 0.2,
+              spanGaps: true,
+              pointRadius: 4
+            };
+          }
         });
         konfigurasi = {
           type: jenis,
@@ -1398,6 +1422,14 @@ function buatGrafikPengguna() {
         };
       }
     }
+
+    buatChart('grafik', 'kanvas-grafik', konfigurasi);
+    $('kosong-grafik').hidden = true;
+    $('btn-unduh-grafik').hidden = false;
+  } catch (err) {
+    notif(err.message, 'error');
+  }
+}
 
     buatChart('grafik', 'kanvas-grafik', konfigurasi);
     $('kosong-grafik').hidden = true;
