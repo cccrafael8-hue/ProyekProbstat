@@ -1389,6 +1389,10 @@ function unduhGrafik() {
    INISIALISASI
    ============================================================ */
 function init() {
+  if (typeof window.initSidebar === 'function') {
+    window.initSidebar();
+  }
+
   // Menu
   document.querySelectorAll('.menu-btn').forEach((btn) => {
     btn.addEventListener('click', () => pindahPanel(btn.dataset.target));
