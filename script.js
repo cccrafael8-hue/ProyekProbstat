@@ -723,17 +723,45 @@ function buatChart(slot, canvasId, konfigurasi) {
 }
 
 function opsiDasar({ judul, labelX, labelY, legenda = true, mulaiNol = false }) {
+  const fontFamily = '"Segoe UI", system-ui, -apple-system, sans-serif';
   return {
     responsive: true,
     maintainAspectRatio: false,
     animation: { duration: 300 },
     plugins: {
-      title: { display: !!judul, text: judul || '', font: { size: 15 } },
-      legend: { display: legenda }
+      title: {
+        display: !!judul,
+        text: judul || '',
+        font: { size: 15, weight: '700', family: fontFamily },
+        color: '#1c2925',
+        padding: { bottom: 15 }
+      },
+      legend: {
+        display: legenda,
+        labels: { font: { family: fontFamily, size: 12 }, color: '#5c7069', usePointStyle: true, boxWidth: 8 }
+      },
+      tooltip: {
+        backgroundColor: '#1f2a26',
+        titleColor: '#ffffff',
+        bodyColor: '#e1eee9',
+        cornerRadius: 8,
+        padding: 10,
+        titleFont: { size: 13, weight: 'bold', family: fontFamily },
+        bodyFont: { size: 12, family: fontFamily }
+      }
     },
     scales: {
-      x: { title: { display: !!labelX, text: labelX || '' } },
-      y: { beginAtZero: mulaiNol, title: { display: !!labelY, text: labelY || '' } }
+      x: {
+        title: { display: !!labelX, text: labelX || '', color: '#5c7069', font: { family: fontFamily, size: 12, weight: '600' } },
+        grid: { display: false },
+        ticks: { color: '#5c7069', font: { family: fontFamily, size: 11 } }
+      },
+      y: {
+        beginAtZero: mulaiNol,
+        title: { display: !!labelY, text: labelY || '', color: '#5c7069', font: { family: fontFamily, size: 12, weight: '600' } },
+        grid: { color: 'rgba(226, 235, 231, 0.7)' },
+        ticks: { color: '#5c7069', font: { family: fontFamily, size: 11 } }
+      }
     }
   };
 }
@@ -771,6 +799,7 @@ function konfigHistogram(arr, o) {
     backgroundColor: warna + 'cc',
     borderColor: warna,
     borderWidth: 1,
+    borderRadius: 8,
     barPercentage: 1,
     categoryPercentage: 1,
     order: 2
@@ -809,7 +838,8 @@ function konfigBatang(labels, nilaiData, o) {
         data: nilaiData,
         backgroundColor: labels.map((_, i) => warnaKe(i, PALET[0]) + 'cc'),
         borderColor: labels.map((_, i) => warnaKe(i, PALET[0])),
-        borderWidth: 1
+        borderWidth: 1,
+        borderRadius: 8
       }]
     },
     options: opsiDasar({ judul: o.judul, labelX: o.labelX, labelY: o.labelY, legenda: false, mulaiNol: true })
@@ -1358,7 +1388,7 @@ function buatGrafikPengguna() {
           const data = kategori.map((k) => agregasi(ambil(k, g), fn));
           const dasar = { label: g === null ? `${namaAgg} ${ky}` : g, data };
           return jenis === 'bar'
-            ? { ...dasar, backgroundColor: w + 'cc', borderColor: w, borderWidth: 1 }
+            ? { ...dasar, backgroundColor: w + 'cc', borderColor: w, borderWidth: 1, borderRadius: 8 }
             : { ...dasar, borderColor: w, backgroundColor: w, tension: 0.2, spanGaps: true, pointRadius: 4 };
         });
         konfigurasi = {
