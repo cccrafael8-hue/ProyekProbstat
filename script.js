@@ -1348,7 +1348,7 @@ function buatGrafikPengguna() {
     } else {
       // bar, line, pie
       if (!kx) throw new Error('Pilih variabel untuk sumbu X.');
-      if (kx === ky) throw new Error('Sumbu X dan sumbu Y meharus variabel yang berbeda.');
+      if (kx === ky) throw new Error('Sumbu X dan sumbu Y harus variabel yang berbeda.');
       const kategori = urutkanKategori(baris.filter((r) => ada(r[kx])).map((r) => r[kx]));
       if (kategori.length === 0) throw new Error('Variabel sumbu X belum berisi data.');
       if (kategori.length > 200) throw new Error('Kategori sumbu X terlalu banyak (lebih dari 200). Pilih variabel lain.');
@@ -1422,14 +1422,6 @@ function buatGrafikPengguna() {
         };
       }
     }
-
-    buatChart('grafik', 'kanvas-grafik', konfigurasi);
-    $('kosong-grafik').hidden = true;
-    $('btn-unduh-grafik').hidden = false;
-  } catch (err) {
-    notif(err.message, 'error');
-  }
-}
 
     buatChart('grafik', 'kanvas-grafik', konfigurasi);
     $('kosong-grafik').hidden = true;
