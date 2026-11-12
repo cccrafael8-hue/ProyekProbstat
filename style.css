@@ -32,7 +32,7 @@
 
   /* Bayangan */
   --shadow-app: 0 20px 50px rgba(28, 41, 37, 0.06), 0 2px 6px rgba(0, 0, 0, 0.02);
-  --shadow-card: 0 4px 16px rgba(28, 41, 37, 0.03);
+  --shadow-card: 0 4px 20px rgba(28, 41, 37, 0.03);
   --shadow-pill: 0 4px 12px rgba(77, 138, 119, 0.15);
   --shadow-menu: 0 4px 14px rgba(28, 41, 37, 0.07);
 }
@@ -305,20 +305,21 @@ h3 {
 /* ---------- Notifikasi ---------- */
 .notifikasi {
   margin-bottom: 1.5rem;
-  padding: 0.9rem 1.15rem;
+  padding: 0.95rem 1.25rem;
   border: 1px solid var(--garis);
   border-left: 5px solid var(--primary);
   border-radius: var(--radius-kontrol);
   background: var(--surface);
   color: var(--teks);
   box-shadow: var(--shadow-card);
-  font-size: 0.93rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
 .notifikasi.sukses {
   border-left-color: var(--primary);
   background: #f0f9f5;
-  color: #1b4538;
+  color: #164234;
 }
 
 .notifikasi.peringatan {
@@ -333,23 +334,23 @@ h3 {
   color: #6d1b1b;
 }
 
-/* ---------- Kartu ---------- */
+/* ---------- Kartu (Dashboard Cards) ---------- */
 .kartu {
   margin-bottom: 1.5rem;
-  padding: 1.5rem 1.6rem;
+  padding: 1.6rem 1.75rem;
   background: var(--surface);
-  border: 1px solid var(--garis);
+  border: 1px solid rgba(226, 235, 231, 0.7);
   border-radius: var(--radius-kartu);
   box-shadow: var(--shadow-card);
 }
 
-/* ---------- Tombol ---------- */
+/* ---------- Tombol (Pill Buttons) ---------- */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  padding: 0.65rem 1.35rem;
+  padding: 0.65rem 1.4rem;
   border: 1px solid transparent;
   border-radius: var(--radius-pill);
   font: inherit;
@@ -357,7 +358,7 @@ h3 {
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  min-height: 40px;
+  min-height: 42px;
 }
 
 .btn-utama {
@@ -387,7 +388,7 @@ h3 {
 
 .btn-bahaya {
   background: var(--surface);
-  border-color: rgba(217, 56, 56, 0.4);
+  border-color: rgba(217, 56, 56, 0.35);
   color: var(--bahaya);
 }
 
@@ -400,18 +401,18 @@ h3 {
 .toolbar {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
+  gap: 0.65rem;
+  margin-bottom: 1.15rem;
 }
 
-/* ---------- Form Controls ---------- */
+/* ---------- Form Controls (Select & Inputs) ---------- */
 .field {
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.25rem;
 }
 
 .field label {
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.45rem;
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--teks);
@@ -421,7 +422,7 @@ select,
 input[type="text"],
 input[type="number"] {
   width: 100%;
-  padding: 0.6rem 0.9rem;
+  padding: 0.65rem 1rem;
   border: 1px solid var(--garis-input);
   border-radius: var(--radius-kontrol);
   background: var(--surface);
@@ -433,10 +434,10 @@ input[type="number"] {
 
 select {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%205c7069' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235c7069' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 0.8rem center;
-  padding-right: 2.3rem;
+  background-position: right 0.9rem center;
+  padding-right: 2.5rem;
   border-radius: var(--radius-pill);
 }
 
@@ -451,7 +452,7 @@ input[type="number"]:focus {
 .field-baris {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.75rem;
 }
 
 .field-baris label {
@@ -459,8 +460,8 @@ input[type="number"]:focus {
 }
 
 input[type="color"] {
-  width: 3.2rem;
-  height: 2.2rem;
+  width: 3.4rem;
+  height: 2.3rem;
   padding: 0.15rem;
   border: 1px solid var(--garis-input);
   border-radius: var(--radius-kontrol);
@@ -469,8 +470,8 @@ input[type="color"] {
 }
 
 input[type="checkbox"] {
-  width: 1.15rem;
-  height: 1.15rem;
+  width: 1.2rem;
+  height: 1.2rem;
   accent-color: var(--primary);
   cursor: pointer;
 }
@@ -478,8 +479,8 @@ input[type="checkbox"] {
 .daftar-centang {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1.25rem;
-  margin-bottom: 1.15rem;
+  gap: 0.6rem 1.35rem;
+  margin-bottom: 1.25rem;
 }
 
 .daftar-centang label {
@@ -495,11 +496,11 @@ input[type="checkbox"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.4rem;
-  padding: 2.5rem 1.5rem;
-  border: 2px dashed rgba(77, 138, 119, 0.4);
+  gap: 0.45rem;
+  padding: 2.75rem 1.5rem;
+  border: 2px dashed rgba(77, 138, 119, 0.35);
   border-radius: var(--radius-kartu);
-  background: rgba(225, 238, 233, 0.3);
+  background: rgba(225, 238, 233, 0.4);
   text-align: center;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -509,11 +510,11 @@ input[type="checkbox"] {
 .dropzone.dragover {
   background: var(--mint);
   border-color: var(--primary);
-  transform: scale(1.005);
+  transform: scale(1.003);
 }
 
 .dropzone-judul {
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   font-weight: 700;
   color: var(--teks);
 }
@@ -524,13 +525,13 @@ input[type="checkbox"] {
 }
 
 .info-file {
-  margin: 0.75rem 0 0;
+  margin: 0.85rem 0 0;
   color: var(--primary);
   font-size: 0.9rem;
   font-weight: 600;
 }
 
-/* ---------- Tabel ---------- */
+/* ---------- Tabel Clean & Modern ---------- */
 .tabel-wrap {
   max-width: 100%;
   max-height: 460px;
@@ -555,7 +556,7 @@ input[type="checkbox"] {
 
 .tabel th,
 .tabel td {
-  padding: 0.65rem 0.95rem;
+  padding: 0.7rem 1rem;
   border-bottom: 1px solid var(--garis);
   text-align: left;
   white-space: nowrap;
@@ -564,13 +565,14 @@ input[type="checkbox"] {
 .tabel th {
   position: sticky;
   top: 0;
-  background: var(--surface-alt);
+  background: #f8faf9;
   color: var(--teks-lembut);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   z-index: 2;
+  border-bottom: 1px solid var(--garis);
 }
 
 .tabel tbody tr {
@@ -578,18 +580,18 @@ input[type="checkbox"] {
 }
 
 .tabel tbody tr:hover {
-  background-color: var(--surface-alt);
+  background-color: #f4f8f6;
 }
 
 .tabel td input {
   width: 100%;
   min-width: 5rem;
-  padding: 0.2rem 0.4rem;
+  padding: 0.25rem 0.4rem;
   border: none;
   background: transparent;
   font: inherit;
   color: var(--teks);
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .tabel td input:focus {
@@ -603,42 +605,48 @@ input[type="checkbox"] {
   font-size: 0.88rem;
 }
 
-/* ---------- Hasil Uji & Chip ---------- */
+/* ---------- Hasil Uji & Badge Chip ---------- */
 .hipotesis {
-  margin-bottom: 1.15rem;
-  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.25rem;
+  padding: 0.95rem 1.25rem;
   background: var(--surface-alt);
   border-radius: var(--radius-kontrol);
+  border: 1px solid var(--garis);
 }
 
 .hipotesis p {
-  margin: 0.25rem 0;
+  margin: 0.3rem 0;
   font-size: 0.92rem;
 }
 
 .keputusan {
   margin: 1.25rem 0 0.75rem;
-  padding: 0.75rem 1.1rem;
+  padding: 0.55rem 1.15rem;
   border-radius: var(--radius-pill);
   font-weight: 700;
-  font-size: 0.92rem;
-  display: inline-block;
+  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .keputusan.signifikan {
-  background: #dcf2e9;
-  color: #17543d;
+  background: #e4f4ed;
+  color: #165239;
+  border: 1px solid rgba(77, 138, 119, 0.25);
 }
 
 .keputusan.tidak-signifikan {
-  background: #f4eee2;
-  color: #6d4b1a;
+  background: #f5efe6;
+  color: #6e4e1f;
+  border: 1px solid rgba(217, 142, 63, 0.25);
 }
 
 .kesimpulan {
-  margin: 0.5rem 0 1.25rem;
+  margin: 0.6rem 0 1.25rem;
   font-size: 0.93rem;
-  line-height: 1.6;
+  line-height: 1.65;
+  color: var(--teks);
 }
 
 /* ---------- Grafik ---------- */
@@ -687,7 +695,7 @@ input[type="checkbox"] {
 .sidebar-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(28, 41, 37, 0.4);
+  background: rgba(28, 41, 37, 0.45);
   backdrop-filter: blur(2px);
   z-index: 999;
   opacity: 0;
