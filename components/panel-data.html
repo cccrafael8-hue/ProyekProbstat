@@ -1,0 +1,42 @@
+<!-- ============ PANEL 1: DATA ============ -->
+<section id="panel-data" class="panel aktif">
+  <h2>Data</h2>
+
+  <label class="dropzone" for="input-file" id="dropzone">
+    <span class="dropzone-judul">Pilih file atau tarik file ke sini</span>
+    <span class="dropzone-info">Format yang didukung: CSV, XLSX, XLS</span>
+    <input type="file" id="input-file" accept=".csv,.xlsx,.xls" hidden>
+  </label>
+  <p id="info-file" class="info-file"></p>
+
+  <div id="area-data" hidden>
+    <h3>Data view</h3>
+    <div class="toolbar">
+      <button type="button" id="btn-tambah-baris" class="btn btn-sekunder">Tambah baris</button>
+      <button type="button" id="btn-hapus-baris" class="btn btn-sekunder">Hapus baris terakhir</button>
+      <button type="button" id="btn-hapus-data" class="btn btn-bahaya">Hapus semua data</button>
+    </div>
+    <div class="tabel-wrap">
+      <table id="tabel-data" class="tabel">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p id="ringkasan-data" class="catatan"></p>
+
+    <h3>Variable view</h3>
+    <div class="tabel-wrap">
+      <table id="tabel-variabel" class="tabel">
+        <thead>
+          <tr>
+            <th>Variabel</th>
+            <th>Tipe</th>
+            <th>Jumlah data</th>
+            <th>Data kosong</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>

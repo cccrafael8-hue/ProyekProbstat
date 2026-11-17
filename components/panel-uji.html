@@ -1,0 +1,148 @@
+<!-- ============ PANEL 3: UJI HIPOTESIS ============ -->
+<section id="panel-uji" class="panel">
+  <h2>Uji hipotesis</h2>
+
+  <div class="kartu">
+    <div class="field">
+      <label for="pilih-metode">Metode uji</label>
+      <select id="pilih-metode">
+        <option value="t-satu">One sample t-test</option>
+        <option value="t-independen">Independent t-test</option>
+        <option value="t-berpasangan">Paired t-test</option>
+        <option value="anova">ANOVA one-way</option>
+        <option value="normalitas">Uji normalitas</option>
+        <option value="korelasi">Korelasi Pearson</option>
+        <option value="chi-square">Chi-square</option>
+        <option value="regresi">Regresi linear sederhana</option>
+      </select>
+    </div>
+
+    <!-- One sample t-test -->
+    <div class="grup-uji" data-metode="t-satu">
+      <div class="field">
+        <label for="t1-var">Variabel</label>
+        <select id="t1-var" class="pilih-numerik"></select>
+      </div>
+      <div class="field">
+        <label for="t1-mu">Nilai pembanding (μ₀)</label>
+        <input type="number" id="t1-mu" step="any" value="0">
+      </div>
+    </div>
+
+    <!-- Independent t-test -->
+    <div class="grup-uji" data-metode="t-independen" hidden>
+      <div class="field">
+        <label for="t2-var">Variabel nilai</label>
+        <select id="t2-var" class="pilih-numerik"></select>
+      </div>
+      <div class="field">
+        <label for="t2-kelompok">Variabel kelompok (2 kategori)</label>
+        <select id="t2-kelompok" class="pilih-semua"></select>
+      </div>
+    </div>
+
+    <!-- Paired t-test -->
+    <div class="grup-uji" data-metode="t-berpasangan" hidden>
+      <div class="field">
+        <label for="tp-var1">Variabel pertama</label>
+        <select id="tp-var1" class="pilih-numerik"></select>
+      </div>
+      <div class="field">
+        <label for="tp-var2">Variabel kedua</label>
+        <select id="tp-var2" class="pilih-numerik"></select>
+      </div>
+    </div>
+
+    <!-- ANOVA -->
+    <div class="grup-uji" data-metode="anova" hidden>
+      <div class="field">
+        <label for="an-var">Variabel nilai</label>
+        <select id="an-var" class="pilih-numerik"></select>
+      </div>
+      <div class="field">
+        <label for="an-kelompok">Variabel kelompok</label>
+        <select id="an-kelompok" class="pilih-semua"></select>
+      </div>
+    </div>
+
+    <!-- Uji normalitas -->
+    <div class="grup-uji" data-metode="normalitas" hidden>
+      <div class="field">
+        <label for="nm-var">Variabel</label>
+        <select id="nm-var" class="pilih-numerik"></select>
+      </div>
+    </div>
+
+    <!-- Korelasi -->
+    <div class="grup-uji" data-metode="korelasi" hidden>
+      <div class="field">
+        <label for="kr-x">Variabel X</label>
+        <select id="kr-x" class="pilih-numerik"></select>
+      </div>
+      <div class="field">
+        <label for="kr-y">Variabel Y</label>
+        <select id="kr-y" class="pilih-numerik"></select>
+      </div>
+    </div>
+
+    <!-- Chi-square -->
+    <div class="grup-uji" data-metode="chi-square" hidden>
+      <div class="field">
+        <label for="ch-var1">Variabel kategori pertama</label>
+        <select id="ch-var1" class="pilih-semua"></select>
+      </div>
+      <div class="field">
+        <label for="ch-var2">Variabel kategori kedua</label>
+        <select id="ch-var2" class="pilih-semua"></select>
+      </div>
+    </div>
+
+    <!-- Regresi -->
+    <div class="grup-uji" data-metode="regresi" hidden>
+      <div class="field">
+        <label for="rg-x">Variabel bebas (X)</label>
+        <select id="rg-x" class="pilih-numerik"></select>
+      </div>
+      <div class="field">
+        <label for="rg-y">Variabel terikat (Y)</label>
+        <select id="rg-y" class="pilih-numerik"></select>
+      </div>
+    </div>
+
+    <!-- Taraf signifikansi (dipakai semua uji) -->
+    <div class="field">
+      <label for="alpha">Taraf signifikansi (α)</label>
+      <select id="alpha">
+        <option value="0.05" selected>0,05</option>
+        <option value="0.01">0,01</option>
+        <option value="0.10">0,10</option>
+      </select>
+    </div>
+
+    <button type="button" id="btn-jalankan" class="btn btn-utama">Jalankan uji</button>
+  </div>
+
+  <!-- Hasil uji (diisi oleh script) -->
+  <div id="hasil-uji" class="kartu" hidden>
+    <h3 id="hasil-judul">Hasil uji</h3>
+
+    <div class="hipotesis">
+      <p><strong>H0:</strong> <span id="hasil-h0"></span></p>
+      <p><strong>H1:</strong> <span id="hasil-h1"></span></p>
+    </div>
+
+    <div class="tabel-wrap">
+      <table id="tabel-hasil" class="tabel">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <p class="keputusan" id="hasil-keputusan"></p>
+    <p class="kesimpulan" id="hasil-kesimpulan"></p>
+
+    <div class="kanvas-wrap">
+      <canvas id="kanvas-uji"></canvas>
+    </div>
+  </div>
+</section>
