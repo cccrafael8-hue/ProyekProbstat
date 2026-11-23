@@ -1,42 +1,88 @@
 <!-- ============ PANEL 1: DATA ============ -->
 <section id="panel-data" class="panel aktif">
-  <h2>Data</h2>
 
+  <div class="panel-header">
+    <h2>Data</h2>
+    <span class="panel-badge">Import &amp; Edit</span>
+  </div>
+
+  <!-- Drop Zone — Ultra Edition -->
   <label class="dropzone" for="input-file" id="dropzone">
-    <span class="dropzone-judul">Pilih file atau tarik file ke sini</span>
-    <span class="dropzone-info">Format yang didukung: CSV, XLSX, XLS</span>
+    <div class="dropzone-glow"></div>
+    <div class="dropzone-icon">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="17 8 12 3 7 8"/>
+        <line x1="12" y1="3" x2="12" y2="15"/>
+      </svg>
+    </div>
+    <span class="dropzone-judul">Klik atau seret file ke sini</span>
+    <span class="dropzone-info">Ukuran maksimum 10 MB per file</span>
+    <div class="dropzone-formats">
+      <span class="format-badge">CSV</span>
+      <span class="format-badge">XLSX</span>
+      <span class="format-badge">XLS</span>
+    </div>
     <input type="file" id="input-file" accept=".csv,.xlsx,.xls" hidden>
   </label>
-  <p id="info-file" class="info-file"></p>
+  <p id="info-file" class="info-file" style="display:none;"></p>
 
+  <!-- Data Tables -->
   <div id="area-data" hidden>
-    <h3>Data view</h3>
-    <div class="toolbar">
-      <button type="button" id="btn-tambah-baris" class="btn btn-sekunder">Tambah baris</button>
-      <button type="button" id="btn-hapus-baris" class="btn btn-sekunder">Hapus baris terakhir</button>
-      <button type="button" id="btn-hapus-data" class="btn btn-bahaya">Hapus semua data</button>
-    </div>
-    <div class="tabel-wrap">
-      <table id="tabel-data" class="tabel">
-        <thead></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-    <p id="ringkasan-data" class="catatan"></p>
 
-    <h3>Variable view</h3>
-    <div class="tabel-wrap">
-      <table id="tabel-variabel" class="tabel">
-        <thead>
-          <tr>
-            <th>Variabel</th>
-            <th>Tipe</th>
-            <th>Jumlah data</th>
-            <th>Data kosong</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+    <div class="kartu">
+      <h3>Data View</h3>
+      <div class="toolbar">
+        <button type="button" id="btn-tambah-baris" class="btn btn-sekunder">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Tambah baris
+        </button>
+        <button type="button" id="btn-hapus-baris" class="btn btn-sekunder">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Hapus baris terakhir
+        </button>
+        <button type="button" id="btn-hapus-data" class="btn btn-bahaya">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"/>
+            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+            <path d="M10 11v6M14 11v6M9 6V4h6v2"/>
+          </svg>
+          Hapus semua
+        </button>
+      </div>
+      <div class="tabel-wrap">
+        <table id="tabel-data" class="tabel">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p id="ringkasan-data" class="catatan"></p>
     </div>
+
+    <div class="kartu">
+      <h3>Variable View</h3>
+      <div class="tabel-wrap">
+        <table id="tabel-variabel" class="tabel">
+          <thead>
+            <tr>
+              <th>Variabel</th>
+              <th>Tipe</th>
+              <th>Jumlah data</th>
+              <th>Data kosong</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
 </section>

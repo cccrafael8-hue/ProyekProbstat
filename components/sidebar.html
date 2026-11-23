@@ -1,41 +1,60 @@
 <aside class="sidebar" id="sidebar">
   <nav class="menu" aria-label="Menu utama">
+    <div class="menu-label">Alur Kerja</div>
+
     <button type="button" class="menu-btn aktif" data-target="panel-data">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <path d="M3 9h18" />
-        <path d="M3 15h18" />
-        <path d="M9 3v18" />
-      </svg>
+      <span class="menu-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18M3 15h18M9 3v18"/>
+        </svg>
+      </span>
       <span>Data</span>
+      <span class="menu-step">01</span>
     </button>
+
     <button type="button" class="menu-btn" data-target="panel-deskriptif">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <line x1="18" y1="20" x2="18" y2="10" />
-        <line x1="12" y1="20" x2="12" y2="4" />
-        <line x1="6" y1="20" x2="6" y2="14" />
-      </svg>
+      <span class="menu-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10"/>
+          <line x1="12" y1="20" x2="12" y2="4"/>
+          <line x1="6"  y1="20" x2="6"  y2="14"/>
+        </svg>
+      </span>
       <span>Statistik deskriptif</span>
+      <span class="menu-step">02</span>
     </button>
+
     <button type="button" class="menu-btn" data-target="panel-uji">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <path d="M10 2v7.31M14 2v7.31M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0" />
-      </svg>
+      <span class="menu-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 2v7.31M14 2v7.31M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0"/>
+        </svg>
+      </span>
       <span>Uji hipotesis</span>
+      <span class="menu-step">03</span>
     </button>
+
     <button type="button" class="menu-btn" data-target="panel-grafik">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 3v18h18" />
-        <path d="m19 9-5 5-4-4-3 3" />
-      </svg>
+      <span class="menu-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3v18h18"/>
+          <path d="m19 9-5 5-4-4-3 3"/>
+        </svg>
+      </span>
       <span>Visualisasi</span>
+      <span class="menu-step">04</span>
     </button>
   </nav>
+
   <div class="sidebar-footer">
-    <div class="sidebar-status" id="status-data">Belum ada data</div>
+    <div class="sidebar-status" id="status-data">
+      <span class="sidebar-status-dot"></span>
+      <span id="status-data-text">Belum ada data</span>
+    </div>
   </div>
 </aside>

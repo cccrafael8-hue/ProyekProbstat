@@ -1,11 +1,21 @@
 <!-- ============ PANEL 2: STATISTIK DESKRIPTIF ============ -->
 <section id="panel-deskriptif" class="panel">
-  <h2>Statistik deskriptif</h2>
 
-  <div class="kartu">
-    <h3>Variabel numerik</h3>
+  <div class="panel-header">
+    <h2>Statistik deskriptif</h2>
+    <span class="panel-badge">Ringkasan</span>
+  </div>
+
+  <div class="kartu kartu-accent">
+    <h3>Pilih variabel numerik</h3>
     <div id="daftar-numerik" class="daftar-centang"></div>
-    <button type="button" id="btn-deskriptif" class="btn btn-utama">Hitung statistik</button>
+    <button type="button" id="btn-deskriptif" class="btn btn-utama">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+      </svg>
+      Hitung statistik
+    </button>
   </div>
 
   <div class="tabel-wrap">
@@ -44,4 +54,5 @@
       </table>
     </div>
   </div>
+
 </section>

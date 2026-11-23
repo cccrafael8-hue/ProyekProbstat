@@ -1,11 +1,15 @@
 <!-- ============ PANEL 4: VISUALISASI ============ -->
 <section id="panel-grafik" class="panel">
-  <h2>Visualisasi</h2>
+
+  <div class="panel-header">
+    <h2>Visualisasi</h2>
+    <span class="panel-badge">Chart Builder</span>
+  </div>
 
   <div class="grid-grafik">
 
     <!-- Pengaturan grafik -->
-    <div class="kartu pengaturan-grafik">
+    <div class="kartu pengaturan-grafik kartu-accent">
       <h3>Pengaturan grafik</h3>
 
       <div class="field">
@@ -30,7 +34,7 @@
       </div>
 
       <div class="field" id="field-kelompok">
-        <label for="pilih-kelompok">Pisahkan berdasarkan (opsional)</label>
+        <label for="pilih-kelompok">Pisahkan berdasarkan <em>(opsional)</em></label>
         <select id="pilih-kelompok" class="pilih-semua-opsional"></select>
       </div>
 
@@ -50,9 +54,11 @@
         <input type="number" id="jumlah-bin" min="2" max="50" value="8">
       </div>
 
+      <div class="section-divider">Kustomisasi</div>
+
       <div class="field">
         <label for="judul-grafik">Judul grafik</label>
-        <input type="text" id="judul-grafik" placeholder="Tulis judul grafik">
+        <input type="text" id="judul-grafik" placeholder="Contoh: Distribusi Nilai Ujian">
       </div>
 
       <div class="field">
@@ -70,16 +76,33 @@
         <label for="tampil-legenda">Tampilkan legenda</label>
       </div>
 
-      <button type="button" id="btn-buat-grafik" class="btn btn-utama">Buat grafik</button>
+      <button type="button" id="btn-buat-grafik" class="btn btn-utama" style="width:100%;margin-top:0.5rem;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18M9 21V9"/>
+        </svg>
+        Buat grafik
+      </button>
     </div>
 
     <!-- Area grafik -->
-    <div class="kartu area-grafik">
+    <div class="kartu area-grafik" style="margin-bottom:0;">
       <div class="kanvas-wrap kanvas-besar">
         <canvas id="kanvas-grafik"></canvas>
       </div>
-      <p id="kosong-grafik" class="catatan">Pilih jenis grafik dan variabel, lalu klik Buat grafik.</p>
-      <button type="button" id="btn-unduh-grafik" class="btn btn-sekunder" hidden>Unduh grafik (PNG)</button>
+      <p id="kosong-grafik" class="catatan" style="text-align:center;padding:1rem 0;">
+        Pilih jenis grafik dan variabel, lalu klik <strong>Buat grafik</strong>.
+      </p>
+      <button type="button" id="btn-unduh-grafik" class="btn btn-sekunder" hidden>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Unduh grafik (PNG)
+      </button>
     </div>
 
   </div>

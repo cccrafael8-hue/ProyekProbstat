@@ -160,7 +160,7 @@ function buatGrafikPengguna() {
               {
                 data,
                 backgroundColor: kategori.map((_, i) => window.warnaKe(i)),
-                borderColor: "#ffffff",
+                borderColor: "#1c2330",
                 borderWidth: 2,
               },
             ],
@@ -169,8 +169,9 @@ function buatGrafikPengguna() {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-              title: { display: true, text: judul, font: { size: 15 } },
-              legend: { display: legenda },
+              title: { display: true, text: judul, font: { size: 14, weight: "700", family: '"Inter", system-ui, sans-serif' }, color: "#e6edf3", padding: { bottom: 16 } },
+              legend: { display: legenda, labels: { color: "#8b949e", font: { family: '"Inter", system-ui, sans-serif', size: 12 }, usePointStyle: true, pointStyle: "circle", padding: 16 } },
+              tooltip: { backgroundColor: "#0d1117", titleColor: "#e6edf3", bodyColor: "#8b949e", borderColor: "rgba(255,255,255,0.1)", borderWidth: 1, cornerRadius: 10, padding: 12 },
             },
           },
         };

@@ -1,8 +1,14 @@
 <!-- ============ PANEL 3: UJI HIPOTESIS ============ -->
 <section id="panel-uji" class="panel">
-  <h2>Uji hipotesis</h2>
 
-  <div class="kartu">
+  <div class="panel-header">
+    <h2>Uji hipotesis</h2>
+    <span class="panel-badge">Inferensial</span>
+  </div>
+
+  <div class="kartu kartu-accent">
+    <h3>Konfigurasi uji</h3>
+
     <div class="field">
       <label for="pilih-metode">Metode uji</label>
       <select id="pilih-metode">
@@ -109,7 +115,7 @@
       </div>
     </div>
 
-    <!-- Taraf signifikansi (dipakai semua uji) -->
+    <!-- Alpha -->
     <div class="field">
       <label for="alpha">Taraf signifikansi (α)</label>
       <select id="alpha">
@@ -119,10 +125,16 @@
       </select>
     </div>
 
-    <button type="button" id="btn-jalankan" class="btn btn-utama">Jalankan uji</button>
+    <button type="button" id="btn-jalankan" class="btn btn-utama">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="5 3 19 12 5 21 5 3"/>
+      </svg>
+      Jalankan uji
+    </button>
   </div>
 
-  <!-- Hasil uji (diisi oleh script) -->
+  <!-- Hasil uji -->
   <div id="hasil-uji" class="kartu" hidden>
     <h3 id="hasil-judul">Hasil uji</h3>
 
@@ -145,4 +157,5 @@
       <canvas id="kanvas-uji"></canvas>
     </div>
   </div>
+
 </section>

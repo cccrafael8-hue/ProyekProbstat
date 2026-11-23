@@ -70,6 +70,7 @@ function dataBerubah(renderTabel) {
     statusData.textContent = punya
       ? `${window.namaFile || "Data"}: ${window.baris.length} baris, ${window.kolom.length} kolom`
       : "Belum ada data";
+    statusData.classList.toggle("has-data", punya);
   }
   const infoFile = window.$("info-file");
   if (infoFile) {

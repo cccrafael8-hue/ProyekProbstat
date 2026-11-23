@@ -10,7 +10,7 @@ const pluginLatarPutih = {
     const ctx = chart.ctx;
     ctx.save();
     ctx.globalCompositeOperation = "destination-over";
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = "#1c2330";
     ctx.fillRect(0, 0, chart.width, chart.height);
     ctx.restore();
   },
@@ -69,35 +69,42 @@ function opsiDasar({
   legenda = true,
   mulaiNol = false,
 }) {
-  const fontFamily = '"Segoe UI", system-ui, -apple-system, sans-serif';
+  const fontFamily = '"Inter", "Segoe UI", system-ui, -apple-system, sans-serif';
+  const colorText   = "#8b949e";
+  const colorTitle  = "#e6edf3";
+  const colorGrid   = "rgba(255,255,255,0.06)";
   return {
     responsive: true,
     maintainAspectRatio: false,
-    animation: { duration: 300 },
+    animation: { duration: 400, easing: "easeOutQuart" },
     plugins: {
       title: {
         display: !!judul,
         text: judul || "",
-        font: { size: 15, weight: "700", family: fontFamily },
-        color: "#1c2925",
-        padding: { bottom: 15 },
+        font: { size: 14, weight: "700", family: fontFamily },
+        color: colorTitle,
+        padding: { bottom: 16 },
       },
       legend: {
         display: legenda,
         labels: {
           font: { family: fontFamily, size: 12 },
-          color: "#5c7069",
+          color: colorText,
           usePointStyle: true,
+          pointStyle: "circle",
           boxWidth: 8,
+          padding: 16,
         },
       },
       tooltip: {
-        backgroundColor: "#1f2a26",
-        titleColor: "#ffffff",
-        bodyColor: "#e1eee9",
-        cornerRadius: 8,
-        padding: 10,
-        titleFont: { size: 13, weight: "bold", family: fontFamily },
+        backgroundColor: "#0d1117",
+        titleColor: "#e6edf3",
+        bodyColor: "#8b949e",
+        borderColor: "rgba(255,255,255,0.1)",
+        borderWidth: 1,
+        cornerRadius: 10,
+        padding: 12,
+        titleFont: { size: 13, weight: "700", family: fontFamily },
         bodyFont: { size: 12, family: fontFamily },
       },
     },
@@ -106,22 +113,30 @@ function opsiDasar({
         title: {
           display: !!labelX,
           text: labelX || "",
-          color: "#5c7069",
-          font: { family: fontFamily, size: 12, weight: "600" },
+          color: colorText,
+          font: { family: fontFamily, size: 11, weight: "600" },
+          padding: { top: 8 },
         },
         grid: { display: false },
-        ticks: { color: "#5c7069", font: { family: fontFamily, size: 11 } },
+        border: { color: "rgba(255,255,255,0.08)" },
+        ticks: {
+          color: colorText,
+          font: { family: fontFamily, size: 11 },
+          maxRotation: 45,
+        },
       },
       y: {
         beginAtZero: mulaiNol,
         title: {
           display: !!labelY,
           text: labelY || "",
-          color: "#5c7069",
-          font: { family: fontFamily, size: 12, weight: "600" },
+          color: colorText,
+          font: { family: fontFamily, size: 11, weight: "600" },
+          padding: { bottom: 8 },
         },
-        grid: { color: "rgba(226, 235, 231, 0.7)" },
-        ticks: { color: "#5c7069", font: { family: fontFamily, size: 11 } },
+        grid: { color: colorGrid },
+        border: { color: "rgba(255,255,255,0.08)", dash: [4, 4] },
+        ticks: { color: colorText, font: { family: fontFamily, size: 11 } },
       },
     },
   };
